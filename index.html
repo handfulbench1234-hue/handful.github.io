@@ -264,23 +264,24 @@
       <h2 class="subtitle has-text-centered">
       <div class="content has-text-justified">
         <p>
-          <b>i. </b>We present a large-scale dataset of hand poses specifically for pushing or
-          pulling, and leverage it to train a diffusion model.
+          <b>A. </b>We train set of nine resource-aware one and two finger grasping policies that leave fingers free for
+          our diverse suite of second-subtasks.
         </p>
         <p>
-          <b>ii. </b>During execution time, given an object, we obtain its basis
-          point set representation and pass that to our trained diffusion model.
-          This model synthesizes diverse floating pre-contact hand poses formed from our large-scale data generation
-          pipeline. 
+          <b>B. </b>We then use a curriculum-based method to select and train the best grasps for each second-subtask environment,
+          removing grasps that perform poorly in the initial, limited randomization stages.
         </p>
-        <b>iii. </b>Given these hand poses, we then check their feasibility in a physics simulator by adding the
-        arm back in and performing motion planning. We rank the feasible hand poses (e.g., “3” is infeasible in
-        the example here) and select the best performing one (e.g., “4” in our example) and execute it in the real world.
+          <b>C. </b>Finally, taking the best grasp for each task and its corresponding second-subtask policy, we roll out these policies
+          and collect trajectories in each of our grasp + second-subtask environments. Then, to transfer to real, we first fix the position of the       
+          second-subtask object and then replay the trajectory whose first block position best matches the current position of the block in the
+          real world.
         </div>
       </h2>
     </div>
   </div>
 </section>
+
+
 
 
 <section class="section">
