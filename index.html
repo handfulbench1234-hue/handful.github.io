@@ -160,82 +160,48 @@
 </section> -->
 
 
-<!-- <section class="hero is-light is-small">
+<section class="hero is-light is-small">
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
         <div class="item item-steve">
           <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
+            <source src="./static/videos/HANDFUL_Two_Pick/HANDFUL_Two_Pick1.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-chair-tp">
           <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
+            <source src="./static/videos/HANDFUL_Twisting/Video Project 11.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-fullbody">
           <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
+            <source src="./static/videos/HANDFUL_Pushing/Video Project 18.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-blueshirt">
           <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
+            <source src="./static/videos/HANDFUL_Pressing/Video Project 14.mp4"
                     type="video/mp4">
           </video>
         </div>
         <div class="item item-mask">
           <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
+            <source src="./static/videos/HANDFUL_Cabinet/Video Project 8.mp4"
                     type="video/mp4">
           </video>
         </div>
       </div>
     </div>
   </div>
-</section> -->
+</section>
 
 
 <section class="section">
   <div class="container is-max-desktop">
-
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe width="560" height="315" 
-          src="https://www.youtube.com/embed/P6wNkHeMPKM?si=hF_Y2e8dbgxZ70at" 
-          title="YouTube video player" frameborder="0" 
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-    <!--/ Paper video. -->
-
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -246,20 +212,16 @@
             where a robot must execute multiple skills in sequence while maintaining control 
             over previously grasped objects. Most prior work in dexterous manipulation focuses 
             on single-object, single-skill tasks.
-          </p>
-          <p>
             In contrast, our insight is that many sequential tasks require resource-aware grasps 
             that conserve fingers for future actions. 
-          </p>
-          <p>
             In this paper, we study sequential grasp-conditioned dexterous manipulation, where a 
             robot first grasps an object and then performs a second, distinct manipulation subtask 
             while preserving the initial grasp. 
-            We introduce HANDFUL, a learning framework that models finger usage as a limited resource 
+            We introduce <b>HANDFUL</b>, a learning framework that models finger usage as a limited resource 
             and encourages exploration of resource-aware intermediate grasp states through finger-level 
             contact rewards.
             These grasps are subsequently specialized for downstream tasks via curriculum-based 
-            policy learning. We further propose HANDFUL-Bench, a simulation benchmark that 
+            policy learning. We further propose <b>HANDFUL-Bench</b>, a simulation benchmark that 
             introduces sequential dexterous manipulation tasks across multiple second-subtask 
             objectives, including pushing, pulling, and insertion, under a shared grasp-conditioned 
             setup. Extensive simulation results demonstrate that encouraging resource-aware 
@@ -273,8 +235,48 @@
       </div>
     </div>
     <!--/ Abstract. -->
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="hero-body">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe width="560" height="315" 
+          src="https://www.youtube.com/embed/P6wNkHeMPKM?si=hF_Y2e8dbgxZ70at" 
+          title="YouTube video player" frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
 
+  </div>
 
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="title is-3">Method Overview</h2>
+      <img src="./static/images/method.png" class="interpolation-image" alt="Interpolate start reference image.">
+      <h2 class="subtitle has-text-centered">
+      <div class="content has-text-justified">
+        <p>
+          <b>i. </b>We present a large-scale dataset of hand poses specifically for pushing or
+          pulling, and leverage it to train a diffusion model.
+        </p>
+        <p>
+          <b>ii. </b>During execution time, given an object, we obtain its basis
+          point set representation and pass that to our trained diffusion model.
+          This model synthesizes diverse floating pre-contact hand poses formed from our large-scale data generation
+          pipeline. 
+        </p>
+        <b>iii. </b>Given these hand poses, we then check their feasibility in a physics simulator by adding the
+        arm back in and performing motion planning. We rank the feasible hand poses (e.g., “3” is infeasible in
+        the example here) and select the best performing one (e.g., “4” in our example) and execute it in the real world.
+        </div>
+      </h2>
+    </div>
   </div>
 </section>
 
